@@ -3,6 +3,7 @@ name: Deploy ASP.NET Core API to Plesk
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:   # 👈 this enables the Run workflow button
 
 jobs:
   build-and-deploy:
