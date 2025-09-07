@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 
-//Ben Onuorah
+//Ben Onuorah API
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
