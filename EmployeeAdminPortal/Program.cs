@@ -1,8 +1,9 @@
 using EmployeeAdminPortal.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Data.Common;
 using System.Text;
 
 //Ben Onuorah API
@@ -18,6 +19,7 @@ builder.Services.AddSwaggerGen();
 //DefaulConnection
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
@@ -57,12 +59,21 @@ builder.Services.AddAuthorization(Options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/*
+using (var scope = app.Services.CreateScope())
 {
+    var db = scope.ServiceProvider.GetRequiredService < Demo  Context > ();
+    db.Database.SetConnectionString(dbConnection);
+    db.Database.Migrate();
+}
+*/
+
+// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
