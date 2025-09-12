@@ -69,6 +69,17 @@ var app = builder.Build();
     app.UseSwaggerUI();
 //}
 
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/ swagger / v1 / swagger.json", "v1");
+    c.RoutePrefix = "swagger"; // ensures UI is at /swagger
+});
+
+
+app.UseStaticFiles();
+app.UseRouting();
+       
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
