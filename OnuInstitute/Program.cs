@@ -72,10 +72,8 @@ using (var scope = app.Services.CreateScope())
 */
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-
-// What is THIS
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
 //}

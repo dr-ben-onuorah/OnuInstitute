@@ -3,6 +3,7 @@ name: Deploy ASP.NET Core API to Plesk
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:   # 👈 this enables the Run workflow button
 
 jobs:
   build-and-deploy:
@@ -26,5 +27,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./publish
-          server-dir: /httpdocs
+          local-dir: ./publish/
+          server-dir: /httpdocs/
