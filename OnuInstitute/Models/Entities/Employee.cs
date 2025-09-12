@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeeAdminPortal.Models.Entities
+namespace OnuInstitute.Models.Entities
 {
     public class Employee
     {

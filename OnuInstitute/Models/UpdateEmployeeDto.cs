@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeeAdminPortal.Models
+namespace OnuInstitute.Models
 {
     public class UpdateEmployeeDto
     {

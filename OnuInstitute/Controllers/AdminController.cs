@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeAdminPortal.Controllers
+namespace OnuInstitute.Controllers
 {
     [Authorize(Roles="Admin")]
     [Route("api/[controller]")]

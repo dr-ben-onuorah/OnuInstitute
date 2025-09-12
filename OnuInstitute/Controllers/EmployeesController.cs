@@ -1,18 +1,18 @@
-﻿using EmployeeAdminPortal.Data;
-using EmployeeAdminPortal.Models;
-using EmployeeAdminPortal.Models.Entities;
+﻿using OnuInstitute.Data;
+using OnuInstitute.Models;
+using OnuInstitute.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EmployeeAdminPortal.Controllers
+namespace OnuInstitute.Controllers
 {
     //localhost:portnum/api/employees
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly ApplicationDbContext DBContext;
-        public EmployeesController(ApplicationDbContext dbContext) //constructor // to get the DBContext from the program.cs
+        private readonly AppDbContext DBContext;
+        public EmployeesController(AppDbContext dbContext) //constructor // to get the DBContext from the program.cs
         {
             this.DBContext  = dbContext;
         }

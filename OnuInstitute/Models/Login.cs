@@ -1,4 +1,4 @@
-﻿namespace EmployeeAdminPortal.Models
+﻿namespace OnuInstitute.Models
 {
     public class Login
     {

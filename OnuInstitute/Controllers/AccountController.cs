@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using EmployeeAdminPortal.Data;
-using EmployeeAdminPortal.Models;
-using EmployeeAdminPortal.Models.Entities;
+using OnuInstitute.Data;
+using OnuInstitute.Models;
+using OnuInstitute.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace EmployeeAdminPortal.Controllers
+namespace OnuInstitute.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
