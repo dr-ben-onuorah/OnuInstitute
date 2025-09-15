@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
 using OnuInstitute.Data;
 using OnuInstitute.Models;
 using OnuInstitute.Models.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using System.Reflection.Metadata.Ecma335;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System.Security.Claims;
+using System.Text;
+using static System.Object;
 
 namespace OnuInstitute.Controllers
 {
@@ -20,12 +22,14 @@ namespace OnuInstitute.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IAccount _account;
 
-        public AccountController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AccountController(UserManager<IdentityUser> userManager, IAccount account, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
+            _account = account;
         }
 
         [HttpPost("register")]
@@ -33,6 +37,8 @@ namespace OnuInstitute.Controllers
         {
             var name = new IdentityUser { UserName = model.Username };
             var result = await _userManager.CreateAsync(name, model.Password);
+
+            //var result2 = await _account.RegisterAsync
 
             if (result.Succeeded)
             {
